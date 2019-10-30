@@ -1,0 +1,12 @@
+git merge  合并分支
+git branch  创建分支
+git checkout  切换分支
+git  pull   拉取分支
+git  add  .    加上    git  commit -m "描述信息"    添加版本到分支。
+git push  推送分支
+
+  
+git push origin master和git push有什么区别？
+1、master是主分支，还可以建一些其他的分支用于开发。
+2、git push origin master的意思就是上传本地当前分支代码到master分支。
+git push是上传本地所有分支代码到远程对应的分支上。
