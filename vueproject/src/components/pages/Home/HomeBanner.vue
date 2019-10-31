@@ -46,6 +46,9 @@ export default {
     height:1.63rem;
 }
 
+.el-carousel__container{
+  height: 1.63rem !important;
+}
 .el-carousel__container .el-carousel__arrow--left {
   position: absolute;
   left: 0.1rem;

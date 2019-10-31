@@ -21,6 +21,7 @@ header {
   text-align: center;
   position:fixed;
   top:0;
+    z-index: 999;
 }
 header span {
   display: inline-block;

@@ -15,5 +15,17 @@ export default {
     AppNav,
     Main
   }
+  // data(){
+  //   return{
+  //     a:[]
+  //   }
+  // },
+  // async created(){
+  //   let ab = await this.$axios("http://localhost:3000/list");
+  //   console.log(ab);
+  //   this.a = ab.data;
+  //   console.log(this.a);
+    
+  // }
 };
 </script>

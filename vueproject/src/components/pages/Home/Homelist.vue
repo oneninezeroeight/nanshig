@@ -1,119 +1,29 @@
 <template>
   <div class="nctouch-home-layout" id="main-container2">
-    <div class="nctouch-home-block item-goods">
-      <div class="tit-bar">秋冬新品推荐</div>
+    <div class="nctouch-home-block item-goods" v-for="(i,index) in a" :key="index">
+      <div class="tit-bar" v-text="i.goods.title"></div>
 
       <ul class="goods-list">
-        <li>
+        <li v-for="(y,index) in i.goods.item" :key="index">
           <a href="tmpl/product_detail.html?goods_id=227242">
             <div class="goods-pic">
               <img
-                src="https://www.nanshig.com/data/upload/shop/store/goods/47/47_06095303389813607_240.jpg"
+                :src = "y.goods_image"
                 alt
               />
             </div>
             <dl class="goods-info">
-              <dt class="goods-name">男t恤五分袖ins夏季上衣服韩版潮流2019新款嘻哈潮牌帅气 白色上衣 L</dt>
+              <dt class="goods-name" v-text="y.goods_name"></dt>
               <dd class="goods-price">
                 ￥
-                <em>89.00</em>
-              </dd>
-            </dl>
-          </a>
-        </li>
-
-        <li>
-          <a href="tmpl/product_detail.html?goods_id=226205">
-            <div class="goods-pic">
-              <img
-                src="https://www.nanshig.com/data/upload/shop/store/goods/45/45_05860523640282479_240.jpg"
-                alt
-              />
-            </div>
-            <dl class="goods-info">
-              <dt class="goods-name">春夏季白色打底衫男韩版修身紧身健身纯棉短袖t恤男士体恤衫潮流 白色 L</dt>
-              <dd class="goods-price">
-                ￥
-                <em>78.00</em>
-              </dd>
-            </dl>
-          </a>
-        </li>
-
-        <li>
-          <a href="tmpl/product_detail.html?goods_id=226126">
-            <div class="goods-pic">
-              <img
-                src="https://www.nanshig.com/data/upload/shop/store/goods/45/45_05852290685607340_240.jpg"
-                alt
-              />
-            </div>
-            <dl class="goods-info">
-              <dt class="goods-name">新款潮2018春夏男女纯棉情侣印花短袖T恤宽松半袖 港风 白色 L</dt>
-              <dd class="goods-price">
-                ￥
-                <em>79.00</em>
-              </dd>
-            </dl>
-          </a>
-        </li>
-
-        <li>
-          <a href="tmpl/product_detail.html?goods_id=217516">
-            <div class="goods-pic">
-              <img
-                src="https://www.nanshig.com/data/upload/shop/store/goods/16/16_05543842791908251_240.jpg"
-                alt
-              />
-            </div>
-            <dl class="goods-info">
-              <dt class="goods-name">夏季潮男背心欧美街头个性嘻哈潮牌街舞运动宽松无袖t恤男潮流 黑色 L</dt>
-              <dd class="goods-price">
-                ￥
-                <em>79.00</em>
-              </dd>
-            </dl>
-          </a>
-        </li>
-
-        <li>
-          <a href="tmpl/product_detail.html?goods_id=217432">
-            <div class="goods-pic">
-              <img
-                src="https://www.nanshig.com/data/upload/shop/store/goods/16/16_05543811523077876_240.jpg"
-                alt
-              />
-            </div>
-            <dl class="goods-info">
-              <dt class="goods-name">夏季简约韩版修身翻领短袖T恤男日系学生半袖polo衫潮打底衫 蓝色 L</dt>
-              <dd class="goods-price">
-                ￥
-                <em>79.00</em>
-              </dd>
-            </dl>
-          </a>
-        </li>
-
-        <li>
-          <a href="tmpl/product_detail.html?goods_id=216159">
-            <div class="goods-pic">
-              <img
-                src="https://www.nanshig.com/data/upload/shop/store/goods/32/32_05539526257137533_240.jpg"
-                alt
-              />
-            </div>
-            <dl class="goods-info">
-              <dt class="goods-name">夏装印花字母 无袖T恤 宽松运动 背心汗衫 t恤男装学院风 韩版 潮 酒红色 M</dt>
-              <dd class="goods-price">
-                ￥
-                <em>60.00</em>
+                <em v-text="y.goods_price"></em>
               </dd>
             </dl>
           </a>
         </li>
       </ul>
     </div>
-    <div class="nctouch-home-block item-goods">
+    <!-- <div class="nctouch-home-block item-goods">
       <div class="tit-bar">裤子全新上市</div>
 
       <ul class="goods-list">
@@ -451,11 +361,29 @@
           </a>
         </li>
       </ul>
-    </div>
+    </div> -->
   </div>
 </template>
 <script>
+export default {
+  
+  data(){
+    return{
+      a:[]
+    }
+  },
+  async created(){
+    let ab = await this.$axios("http://localhost:3000/list");
+    // console.log(ab);
+    this.a = ab.data;
+    // console.log(this.a);
+    // console.log(this.a.goods_image_url);
+    
+    
+  }
+}
 </script>
+
 <style>
 #main-container2 {
   overflow: hidden;

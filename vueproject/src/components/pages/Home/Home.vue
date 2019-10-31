@@ -18,8 +18,12 @@ export default {
     Banner,
     List,
     AppNav
-  }
+  },
+  methods:{
+
+}
 };
+
 </script>
 <style> 
    

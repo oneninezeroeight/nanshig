@@ -4,7 +4,7 @@ const assert = require('assert');
 const url = "mongodb://localhost:27017";
 
 // const dbName = "yifeng";
-const dbName = "xiaomi";
+const dbName = "nanshig";
 
 const connect = () => {
     return new Promise((resovle, reject) => {
