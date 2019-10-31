@@ -1,12 +1,19 @@
 <template>
- <AppNav></AppNav>
+  <div class="Mine">
+    <Header></Header>
+    <Main></Main>
+    <AppNav></AppNav>
+  </div>
 </template>
-
 <script>
 import AppNav from "../../conmont/AppNav/AppNav.vue";
+import Header from "./MineHeader";
+import Main from "./Minemain";
 export default {
   components: {
-    AppNav
+    Header,
+    AppNav,
+    Main
   }
 };
 </script>
