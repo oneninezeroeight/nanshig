@@ -36,6 +36,14 @@ const routes = [
     path: "/mine",
     name: "mine",
     component: () => import("../components/pages/Mine/Mine.vue")
+  }, {
+    path: "/login",
+    name: "login",
+    component: () => import("../components/conmont/login.vue")
+  },{
+    path: "/register",
+    name: "register",
+    component: () => import("../components/conmont/register.vue")
   }
 ];
 

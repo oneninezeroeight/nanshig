@@ -47,12 +47,12 @@ export default {
         }
     },
     async created(){
-        let tablists = await this.$axios("http://localhost:3000/tablist2");
+        let tablists = await this.$axios("http://10.3.142.150:3000/tablist2");
         // console.log(tablists);
         this.tablist = tablists.data[1].class_list[0].child;
         // console.log(this.tablist);
 
-        let lists = await this.$axios("http://localhost:3000/list2");
+        let lists = await this.$axios("http://10.3.142.150:3000/list2");
         // console.log(tablists);
         this.list = lists.data;
         // console.log(this.list);
