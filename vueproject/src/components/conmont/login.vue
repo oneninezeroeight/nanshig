@@ -70,104 +70,136 @@
 </template>
 <script>
 import AppNav from "./AppNav/AppNav.vue";
+import qs from 'qs';
 export default {
   components: {
     AppNav
   },
-  data(){
-      return {
-          name:"",
-          password:"",
-          tips1:"",
-          tips2:"",
-          uisok:false,
-          pisok:false
-      }
+  data() {
+    return {
+      name: "",
+      password: "",
+      tips1: "",
+      tips2: "",
+      uisok: false,
+      pisok: false
+    };
   },
-  methods:{
-      user:function () {
-        //   console.log(11);
-        //   console.log(this.name);
-          
-          let _username  = this.name;
-          if (_username ==""){
-              this.tips1 = "用户名不能为空";
+  methods: {
+    user: function() {
+      //   console.log(11);
+      //   console.log(this.name);
+
+      let _username = this.name;
+      if (_username == "") {
+        this.tips1 = "用户名不能为空";
+        this.uisok = false;
+      } else {
+        this.$axios
+          .post("http://10.3.142.150:3000/users/sign/" + _username)
+          .then(({ data }) => {
+            //   let data = res.data.length
+            //   console.log(data.length);
+            if (data.length == 0) {
+              this.tips1 = "没有该用户";
               this.uisok = false;
-          } else{
-              this.$axios.post("http://10.3.142.150:3000/users/sign/" + _username).then(({data})=>{
-                //   let data = res.data.length
-                //   console.log(data.length);
-                  if(data.length == 0){
-                      this.tips1 = '没有该用户';
-                      this.uisok = false;
-                  }else{
-                      this.tips1 = '';
-                      this.uisok = true;
-                  }
-              })
+            } else {
+              this.tips1 = "";
+              this.uisok = true;
+            }
+          });
 
-          }
-      },
-      pwd:function () {
-          if (this.password == ""){
-              this.tips2 = "密码不能为空";
-              this.pisok = false;
-          }else{
-              var myreg = /^(\w){6,20}$/;
-              if(!myreg.test(this.password)){
-                  this.tips2 = "密码格式不对";
-                  this.pisok = false;
-              }else{
-                  this.tips2 = "";
-                  this.pisok = true
-              }
-          }
-      },
-      login:function () {
-            if(this.uisok == false){
-                this.user();
-            } else  if(this.pisok == false){
-                    this.pwd();
-            }else{
-                // let _username  = this.name;
-                // var canshu = {
-                //     username:aa,
-                //     password:123456
-                // }
-                
-                this.$axios.post("http://10.3.142.150:3000/users/login").then(({data})=>{
-                //   let data = res.data.length
-                  console.log(data);
-                //   if(data.length == 0){
-                //       this.tips1 = '没有该用户';
-                //       this.uisok = false;
-                //   }else{
-                //       this.tips1 = '';
-                //       this.uisok = true;
-                //   }
-              })
-
-            }            
-           
-            
+        // let aee = {
+        //   username: "sadasaa",
+        //   password: 123456
+        // };  
+        //  this.$axios({
+        //     method: "post",
+        //     headers:{
+		// 				'Content-Type':'application/x-www-form-urlencoded'
+		// 			},
+        //   url: "http://10.3.142.150:3000/users/login",
+        //   data:qs.stringify(aee),
+        // });
       }
+    },
+    pwd: function() {
+      if (this.password == "") {
+        this.tips2 = "密码不能为空";
+        this.pisok = false;
+      } else {
+        var myreg = /^(\w){6,20}$/;
+        if (!myreg.test(this.password)) {
+          this.tips2 = "密码格式不对";
+          this.pisok = false;
+        } else {
+          this.tips2 = "";
+          this.pisok = true;
+        }
+      }
+    },
+    login: function() {
+//       if (this.uisok == false) {
+//         this.user();
+//       } else if (this.pisok == false) {
+//         this.pwd();
+//       } else 
+//       {
+//         let _username  = this.name;
+//         var canshu = {
+//             username:aa,
+//             password:123456
+//         }
+        console.log(1111);
+        
+
+//         this.$axios.post("http://10.3.142.150:3000/users/login",
+//            {
+//                aee
+//            }
+//         ).then((data) => {
+//           //   let data = res.data.length
+//           window.console.log(data);
+//           //   if(data.length == 0){
+//           //       this.tips1 = '没有该用户';
+//           //       this.uisok = false;
+//           //   }else{
+//           //       this.tips1 = '';
+//           //       this.uisok = true;
+//           //   }
+//         });
+
+        let aee = {
+          username: "sadasaa",
+          password: 123456
+        };
+        this.$axios({
+            method: "post",
+            headers:{
+						'Content-Type':'application/x-www-form-urlencoded'
+					},
+          url: "http://10.3.142.150:3000/users/login",
+          data:qs.stringify(aee),
+        });
+//       }
+    }
   }
 };
 </script>
 
 <style scoped>
-h4{
-    color: black;
+h4 {
+  color: black;
 }
 
- .a-l{
-        width:100%;
-        line-height:.43rem;
-        right:0;
-    }
- .main {
+.a-l {
+  width: 100%;
+  line-height: 0.43rem;
+  right: 0;
+}
+.main {
   margin-top: 0.43rem;
-  background-color:rgb(252, 246, 246);
+  background-color: rgb(252, 246, 246);
 }
 .main ul li {
   width: 100%;
@@ -187,68 +219,68 @@ h4{
   outline-style: none;
   height: 0.3rem;
 }
-.form-box{
-  background-color:#fff;
+.form-box {
+  background-color: #fff;
 }
 .main .form-box li:nth-child(1) {
   border-bottom: 0.01rem solid #ccc;
 }
 
-.remember-form{
-    height:.2rem;
-    margin:.22rem .44rem 0;
-    font-size:.12rem;
-    line-height:.2rem;
+.remember-form {
+  height: 0.2rem;
+  margin: 0.22rem 0.44rem 0;
+  font-size: 0.12rem;
+  line-height: 0.2rem;
 }
-.remember-form #checkbox{
-    width:.16rem;
-    height:.16rem;
+.remember-form #checkbox {
+  width: 0.16rem;
+  height: 0.16rem;
 }
-.remember-form a{
-    float:right;
+.remember-form a {
+  float: right;
 }
-.form-btn{
-    width:90%;
-    margin:auto;
-    background-color:#ff5001;
-    border-radius: .1rem;
-    height:.4rem;
-    margin-top:.3rem;
+.form-btn {
+  width: 90%;
+  margin: auto;
+  background-color: #ff5001;
+  border-radius: 0.1rem;
+  height: 0.4rem;
+  margin-top: 0.3rem;
 }
-.form-btn a{
-    color:#fff;
-    line-height:.4rem;
-    display:block;
-    text-align:center;
+.form-btn a {
+  color: #fff;
+  line-height: 0.4rem;
+  display: block;
+  text-align: center;
 }
-    .joint-login h2{
-        height:.24rem;
-        border-bottom:0.01rem solid #ccc;
-        position:relative;
-    }
-    .joint-login h2 span{
-        font-size:.12rem;
-        width:1.16rem;
-        height:.2rem;
-        background-color:rgb(252, 246, 246);
-        line-height:.2rem;
-        position: absolute;
-        left:50%;
-        top:.13rem;
-        text-align:center;
-        transform: translateX(-50%);
-    }
-    #connect{
-        width:2.2rem;
-        margin:auto;
-    }
-    #connect li{
-        width:1.1rem;
-        float:left;
-        margin-top:.3rem;
-    }
-    #connect li a img{
-        width:.43rem;
-        height:.43rem;
-    }   
+.joint-login h2 {
+  height: 0.24rem;
+  border-bottom: 0.01rem solid #ccc;
+  position: relative;
+}
+.joint-login h2 span {
+  font-size: 0.12rem;
+  width: 1.16rem;
+  height: 0.2rem;
+  background-color: rgb(252, 246, 246);
+  line-height: 0.2rem;
+  position: absolute;
+  left: 50%;
+  top: 0.13rem;
+  text-align: center;
+  transform: translateX(-50%);
+}
+#connect {
+  width: 2.2rem;
+  margin: auto;
+}
+#connect li {
+  width: 1.1rem;
+  float: left;
+  margin-top: 0.3rem;
+}
+#connect li a img {
+  width: 0.43rem;
+  height: 0.43rem;
+}
 </style>
