@@ -42,9 +42,9 @@ export default {
           icon: "el-icon-search"
         },
         {
-          name: "cart",
+          name: "shopping",
           text: "购物车",
-          path: "/cart",
+          path: "/shopping",
           icon: "el-icon-shopping-cart-full"
         },
         {
