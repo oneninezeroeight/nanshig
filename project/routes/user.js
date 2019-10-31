@@ -16,13 +16,12 @@ const { find, insert } = require("./db.js");
 
 
   //查-注册
-router.post('/sign/:_username', async function (req, res, next) {
-//   let username = req.body
-  let param = req.params._username
+router.post('/sign', async function (req, res, next) {
+  let username = req.body
+  // let param = req.params._username
   // console.log(req.body)
   let data = await find('user', {
-//   'username': username
-    'username': param
+  'username': username
   })
   // 
   // console.log(data)
