@@ -71,7 +71,7 @@
       </ul>
       <div class="free-shipping">免运费</div>
     </div>
-    <div class="Size-information">
+    <div class="Size-information" @click="higggge">
       <span>已选</span>
       <span>
         颜色
@@ -83,6 +83,8 @@
       </span>
       <span class="el-icon-arrow-right"></span>
     </div>
+
+    <div class="pop-up" v-show="boot"></div>
   </div>
 </template>
 
@@ -91,14 +93,22 @@
         data(){
             return{
                 bool:false,
-                render:''
+                render:'',
+                boot:false
             }
         },
         methods:{
             higgg(){
                 this.bool = !this.bool;
-            }
+            },
+            higggge() {
+                this.boot = !this.boot;
+            },
+            // renturnto(){
+            //   this.$route.go(-1)
+            // }
         },
+        
          async created(){
     let id1 = this.$route.params.id1;
     console.log(id1);
@@ -116,12 +126,28 @@
     this.render = data.data
     console.log(this.render);
     
-    
-    
+ 
     
   }
-    }
+// export default {
+//   data() {
+//     return {
+//       bool: false,
+//       boot: false
+//     };
+//   },
+//   methods: {
+//     higgg() {
+//       this.bool = !this.bool;
+//     },
+//     higggge() {
+//       this.boot = !this.boot;
+//     }
+//   }
+// };
+};
 </script>
+
 <style>
 .datamain {
   margin-top: 0.43rem;
@@ -166,26 +192,26 @@
   width: 100%;
   height: 0.42rem;
   border-bottom: 0.01rem solid #ccc;
-  padding:.11rem;
+  padding: 0.11rem;
   box-sizing: border-box;
-  line-height:100%;
+  line-height: 100%;
 }
-.dpicture ul li a{
-    display:block;
-    width:100%;
-    height:100%;
-    color:#fff;
-    font-size:.14rem;
-    text-align:left;
-    line-height:.19rem;
+.dpicture ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  font-size: 0.14rem;
+  text-align: left;
+  line-height: 0.19rem;
 }
-.dpicture ul li a i{
-    font-size:.16rem;
-    margin-right:.1rem;
+.dpicture ul li a i {
+  font-size: 0.16rem;
+  margin-right: 0.1rem;
 }
-.dpicture ul li a i img{
-    width:.16rem;
-    height:.16rem;
+.dpicture ul li a i img {
+  width: 0.16rem;
+  height: 0.16rem;
 }
 .dpicture span {
   position: absolute;
@@ -294,5 +320,14 @@
   float: right;
   margin-right: 0;
   font-size: 0.18rem;
+}
+
+.pop-up {
+  width: 100%;
+  height: 2.3rem;
+  background-color: #fff;
+  margin-bottom: 0.44rem;
+  position:fixed;
+  bottom:.44rem;
 }
 </style>

@@ -41,20 +41,22 @@
   height: 100%;
   text-align: center;
   justify-content: center;
-  color:rgb(131, 128, 128);
+  color: rgb(131, 128, 128);
 }
-.Datafooter ul li span{
-    font-size:.12rem;
-    color:#000;
+.Datafooter ul li span {
+  font-size: 0.12rem;
+  color: #000;
 }
 .Datafooter ul li:nth-child(1) {
   width: 0.57rem;
   border: 0.01rem solid #ccc;
   border-left: 0;
+  background-color: #fff;
 }
 .Datafooter ul li:nth-child(2) {
   width: 0.73rem;
   border-top: 0.01rem solid #ccc;
+  background-color: #fff;
 }
 .Datafooter ul li:nth-child(3) {
   width: 1.09rem;

@@ -1,6 +1,6 @@
 <template>
 <header>
-    <span class="el-icon-arrow-left tableft"></span>
+    <span class="el-icon-arrow-left tableft" @click="back"></span>
     <p>
       <input type="text" />
       <i class="el-icon-search"></i>
@@ -10,7 +10,15 @@
 </template>
 
 <script>
+export default {
+  methods:{
+      back(){
+              this.$router.go(-1)
+            }
+    }
+}
 </script>
+
 
 <style>
 

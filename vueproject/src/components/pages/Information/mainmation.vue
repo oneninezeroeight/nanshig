@@ -151,8 +151,8 @@
         width:.43rem;
         height:.43rem;
     }
-/* 
-        border: 1px solid #f40;
+
+        /* border: 1px solid #f40;
     padding: 0.2rem;
     border-radius: 5px;
     color: #f40;

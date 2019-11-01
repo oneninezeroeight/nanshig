@@ -1,6 +1,6 @@
 <template>
   <header>
-    <span class="el-icon-arrow-left tableft"></span>
+    <span class="el-icon-arrow-left tableft" @click="back"></span>
     <span class="el-icon-more searchr"></span>
     <ul class="tabpage">
       <li>
@@ -15,6 +15,17 @@
     </ul>
   </header>
 </template>
+
+<script>
+export default {
+    methods:{
+       back(){
+              this.$router.go(-1)
+            }
+    }
+}
+</script>
+
 
 <style>
 .tabpage {

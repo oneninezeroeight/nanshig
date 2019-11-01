@@ -326,26 +326,7 @@ export default {
   components: {
     Table
   },
-  mounted() {
-    let imgs = document.querySelectorAll("img");
-    let clientHeight =
-      window.innerHeight ||
-      document.documentElement.clientHeight ||
-      document.body.clientHeight;
-    function lazyLoad() {
-      let scrollTop =
-        window.pageYOffset ||
-        document.documentElement.scrollTop ||
-        document.body.scrollTop;
-      for (let i = 0; i < imgs.length; i++) {
-        let x = clientHeight + scrollTop - imgs[i].offsetTop;
-        if (x > 0 && x < clientHeight + imgs[i].height) {
-          imgs[i].src = imgs[i].getAttribute("img");
-        }
-      }
-    }
-    setInterval(lazyLoad, 5000);
-  }
+ 
 };
 </script>
 
