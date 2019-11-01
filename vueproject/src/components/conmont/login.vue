@@ -59,8 +59,7 @@
                 </ul>
             </div>
             <div style="margin-top: 1.066667rem;text-align: center;">
-                <a
-                    href="https://www.nanshig.com/wap/tmpl/member/register_mobile.html"
+                <a  @click="navTo()"
                     style="border: 0.01rem solid #f40;padding: 0.05rem;border-radius: 0.05rem;color: #f40;font-size: .14rem;"
                 >手机注册</a>
             </div>
@@ -86,6 +85,11 @@ export default {
     };
   },
   methods: {
+    navTo(){
+        this.$router.push({
+            name:"register"
+        })
+    },
     user: function() {
       //   console.log(11);
       //   console.log(this.name);
@@ -150,7 +154,7 @@ export default {
 //             username:aa,
 //             password:123456
 //         }
-        console.log(1111);
+        // console.log(1111); 
         
 
 //         this.$axios.post("http://10.3.142.150:3000/users/login",
@@ -168,10 +172,11 @@ export default {
 //           //       this.uisok = true;
 //           //   }
 //         });
+        let _this = this
 
         let aee = {
-          username: "sadasaa",
-          password: 123456
+          username: this.name,
+          password: this.password
         };
         this.$axios({
             method: "post",
@@ -180,7 +185,25 @@ export default {
 					},
           url: "http://10.3.142.150:3000/users/login",
           data:qs.stringify(aee),
-        });
+          
+        }).then(function (res) {
+            // console.log(_this);
+            
+            if(res.data[0] != undefined ){
+                // console.log("登录成功");
+                // this.$router.go(-1);
+                _this.$router.push({
+                    name :"home"
+                })
+                // console.log(this);
+                
+               
+            } else{
+                console.log("账号或密码错误");
+            }
+            
+        })
+        ;
 //       }
     }
   }
