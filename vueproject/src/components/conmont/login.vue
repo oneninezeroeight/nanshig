@@ -1,75 +1,84 @@
 <template>
-    <div>
-        <header>
-            <span class="el-icon-house tableft"></span>
-            <p class="a-l">登录</p>
-        </header> 
-        <div class="main">
-            <ul class="form-box">
-                <li class="form-item">
-                    <h4>账 户</h4>
-                    <div class="input-box">
-                    <input type="text" placeholder="用户名/邮箱/已验证手机" class="inp" name="username" id="username" @blur="user" v-model="name" />
-                    <span class="input-del" v-text="tips1"></span>
-                    </div>
-                </li>
-                <li class="form-item">
-                    <h4>密 码</h4>
-                    <div class="input-box">
-                    <input
-                        type="password"
-                        autocomplete="off"
-                        placeholder="登录密码"
-                        class="inp"
-                        name="pwd"
-                        id="userpwd"
-                        @blur="pwd"
-                        v-model="password"
-                    />
-                    <span class="input-del" v-text="tips2"></span>
-                    </div>
-                </li>
-            </ul>
-            <div class="remember-form">
-                <input id="checkbox" type="checkbox" checked class="checkbox" />
-                <label for="checkbox">七天自动登录</label>
-                <a class="forgot-password" href="find_password.html">忘记密码？</a>
-            </div>
-            <div class="form-btn ok">
-                <a href="javascript:void(0);" class="btn" id="loginbtn" @click="login">登录</a>
-            </div>
-            <div class="joint-login">
-                <h2>
-                    <span>合作账号登录</span>
-                </h2>
-                <ul id="connect">
-                    <li>
-                        <a class="weibo" href="javascript: void(0);">
-                            <img src="../../../public/images/weibo.png" alt="">
-                        </a>
-                    </li>
-                    <li>
-                        <a class="qq" href="javascript: void(0);">
-                            <img src="../../../public/images/qq.png" alt="">
-                        </a>
-                    </li>
-                    <li class="wxshow" style="display:none;">
-                        <a class="weixin" href="javascript: void(0);"></a>
-                    </li>
-                </ul>
-            </div>
-            <div style="margin-top: 1.066667rem;text-align: center;">
-                <a  @click="navTo()"
-                    style="border: 0.01rem solid #f40;padding: 0.05rem;border-radius: 0.05rem;color: #f40;font-size: .14rem;"
-                >手机注册</a>
-            </div>
-        </div>
-        <AppNav />
+  <div>
+    <header>
+      <span @click="navTo('home')" class="el-icon-house tableft"></span>
+      <p class="a-l">登录</p>
+    </header>
+    <div class="main">
+      <ul class="form-box">
+        <li class="form-item">
+          <h4>账 户</h4>
+          <div class="input-box">
+            <input
+              type="text"
+              placeholder="用户名/邮箱/已验证手机"
+              class="inp"
+              name="username"
+              id="username"
+              @blur="user"
+              v-model="name"
+            />
+            <span class="input-del" v-text="tips1"></span>
+          </div>
+        </li>
+        <li class="form-item">
+          <h4>密 码</h4>
+          <div class="input-box">
+            <input
+              type="password"
+              autocomplete="off"
+              placeholder="登录密码"
+              class="inp"
+              name="pwd"
+              id="userpwd"
+              @blur="pwd"
+              v-model="password"
+            />
+            <span class="input-del" v-text="tips2"></span>
+          </div>
+        </li>
+      </ul>
+      <div class="remember-form">
+        <input id="checkbox" type="checkbox" checked class="checkbox" />
+        <label for="checkbox">七天自动登录</label>
+        <a class="forgot-password" href="find_password.html">忘记密码？</a>
+      </div>
+      <div class="form-btn ok">
+        <a href="javascript:void(0);" class="btn" id="loginbtn" @click="login">登录</a>
+      </div>
+      <div class="joint-login">
+        <h2>
+          <span>合作账号登录</span>
+        </h2>
+        <ul id="connect">
+          <li>
+            <a class="weibo" href="javascript: void(0);">
+              <img src="../../../public/images/weibo.png" alt />
+            </a>
+          </li>
+          <li>
+            <a class="qq" href="javascript: void(0);">
+              <img src="../../../public/images/qq.png" alt />
+            </a>
+          </li>
+          <li class="wxshow" style="display:none;">
+            <a class="weixin" href="javascript: void(0);"></a>
+          </li>
+        </ul>
+      </div>
+      <div style="margin-top: 1.066667rem;text-align: center;">
+        <a
+          @click="navTo('register')"
+          style="border: 0.01rem solid #f40;padding: 0.05rem;border-radius: 0.05rem;color: #f40;font-size: .14rem;"
+        >手机注册</a>
+      </div>
     </div>
+    <AppNav />
+  </div>
 </template>
 <script>
 import AppNav from "./AppNav/AppNav.vue";
-import qs from 'qs';
+import qs from "qs";
 export default {
   components: {
     AppNav
@@ -85,10 +94,10 @@ export default {
     };
   },
   methods: {
-    navTo(){
-        this.$router.push({
-            name:"register"
-        })
+    navTo(name) {
+      this.$router.push({
+        name: name
+      });
     },
     user: function() {
       //   console.log(11);
@@ -116,12 +125,12 @@ export default {
         // let aee = {
         //   username: "sadasaa",
         //   password: 123456
-        // };  
+        // };
         //  this.$axios({
         //     method: "post",
         //     headers:{
-		// 				'Content-Type':'application/x-www-form-urlencoded'
-		// 			},
+        // 				'Content-Type':'application/x-www-form-urlencoded'
+        // 			},
         //   url: "http://10.3.142.150:3000/users/login",
         //   data:qs.stringify(aee),
         // });
@@ -143,68 +152,62 @@ export default {
       }
     },
     login: function() {
-//       if (this.uisok == false) {
-//         this.user();
-//       } else if (this.pisok == false) {
-//         this.pwd();
-//       } else 
-//       {
-//         let _username  = this.name;
-//         var canshu = {
-//             username:aa,
-//             password:123456
-//         }
-        // console.log(1111); 
-        
+      //       if (this.uisok == false) {
+      //         this.user();
+      //       } else if (this.pisok == false) {
+      //         this.pwd();
+      //       } else
+      //       {
+      //         let _username  = this.name;
+      //         var canshu = {
+      //             username:aa,
+      //             password:123456
+      //         }
+      // console.log(1111);
 
-//         this.$axios.post("http://10.3.142.150:3000/users/login",
-//            {
-//                aee
-//            }
-//         ).then((data) => {
-//           //   let data = res.data.length
-//           window.console.log(data);
-//           //   if(data.length == 0){
-//           //       this.tips1 = '没有该用户';
-//           //       this.uisok = false;
-//           //   }else{
-//           //       this.tips1 = '';
-//           //       this.uisok = true;
-//           //   }
-//         });
-        let _this = this
+      //         this.$axios.post("http://10.3.142.150:3000/users/login",
+      //            {
+      //                aee
+      //            }
+      //         ).then((data) => {
+      //           //   let data = res.data.length
+      //           window.console.log(data);
+      //           //   if(data.length == 0){
+      //           //       this.tips1 = '没有该用户';
+      //           //       this.uisok = false;
+      //           //   }else{
+      //           //       this.tips1 = '';
+      //           //       this.uisok = true;
+      //           //   }
+      //         });
+      let _this = this;
 
-        let aee = {
-          username: this.name,
-          password: this.password
-        };
-        this.$axios({
-            method: "post",
-            headers:{
-						'Content-Type':'application/x-www-form-urlencoded'
-					},
-          url: "http://10.3.142.150:3000/users/login",
-          data:qs.stringify(aee),
-          
-        }).then(function (res) {
-            // console.log(_this);
-            
-            if(res.data[0] != undefined ){
-                // console.log("登录成功");
-                // this.$router.go(-1);
-                _this.$router.push({
-                    name :"home"
-                })
-                // console.log(this);
-                
-               
-            } else{
-                console.log("账号或密码错误");
-            }
-            
-        })
-        ;
-//       }
+      let aee = {
+        username: this.name,
+        password: this.password
+      };
+      this.$axios({
+        method: "post",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        url: "http://10.3.142.150:3000/users/login",
+        data: qs.stringify(aee)
+      }).then(function(res) {
+        // console.log(_this);
+
+        if (res.data[0] != undefined) {
+          // console.log("登录成功");
+          // this.$router.go(-1);
+          _this.$router.push({
+            name: "home"
+          });
+          // console.log(this);
+        } else {
+          console.log("账号或密码错误");
+        }
+      });
+      //       }
     }
   }
 };
@@ -216,9 +219,11 @@ h4 {
 }
 
 .a-l {
-  width: 100%;
   line-height: 0.43rem;
   right: 0;
+  position:absolute;
+  left:50%;
+  transform: translateX(-50%);
 }
 .main {
   margin-top: 0.43rem;

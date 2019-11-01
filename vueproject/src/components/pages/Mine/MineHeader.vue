@@ -1,7 +1,7 @@
 <template>
   <header id="header" class="transparent">
     <div class="header-l">
-      <a href="javascript:void(0);">
+      <a href="javascript:void(0);" @click="Navto('login')">
         <i class="el-icon-setting"></i>
       </a>
     </div>
@@ -45,27 +45,36 @@
 </template>
 
 <script>
+export default {
+  methods: {
+    Navto(name) {
+      this.$router.push({
+        name: name
+      });
+    }
+  }
+};
 </script>
 <style>
-.header-l{
-    float:left;
+.header-l {
+  float: left;
 }
-.header-r{
-    float:right;
+.header-r {
+  float: right;
 }
-.header-l a{
-    display:inline-block;
-    width:.43rem;
-    height:.43rem;
-    line-height:.43rem;
+.header-l a {
+  display: inline-block;
+  width: 0.43rem;
+  height: 0.43rem;
+  line-height: 0.43rem;
 }
-.header-r a{
-    display:inline-block;
-    width:.43rem;
-    height:.43rem;
-    line-height:.43rem;
+.header-r a {
+  display: inline-block;
+  width: 0.43rem;
+  height: 0.43rem;
+  line-height: 0.43rem;
 }
- .header-l a i {
+.header-l a i {
   display: inline-block;
   font-size: 0.22rem;
 }
@@ -77,14 +86,14 @@ header a {
   color: #fff;
 }
 
-  .nctouch-nav-menu{
-    position:absolute;
-    top:.3rem;
-    right:.1rem;
-    width:1.1rem;
-    height:2.1rem;
-    background-color:rgb(0, 0, 0,0.3);
-    z-index: 666;
-    display:none;
-  }
+.nctouch-nav-menu {
+  position: absolute;
+  top: 0.3rem;
+  right: 0.1rem;
+  width: 1.1rem;
+  height: 2.1rem;
+  background-color: rgb(0, 0, 0, 0.3);
+  z-index: 666;
+  display: none;
+}
 </style>

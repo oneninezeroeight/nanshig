@@ -36,9 +36,9 @@ export default {
           icon: "el-icon-s-unfold"
         },
         {
-          name: "information",
+          name: "login",
           text: "消息",
-          path: "/information",
+          path: "/login",
           icon: "el-icon-search"
         },
         {

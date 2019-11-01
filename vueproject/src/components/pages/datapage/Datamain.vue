@@ -15,7 +15,7 @@
         <p></p>
         <div></div>
         <ul>
-          <li>
+          <li @click="navTo('home')">
             <a href="#">
               <i class="el-icon-house"></i>首页
             </a>
@@ -25,22 +25,22 @@
               <i class="el-icon-zoom-out"></i>搜索
             </a>
           </li>
-          <li>
+          <li @click="navTo('classify')">
             <a href="#">
               <i class="el-icon-menu"></i>分类
             </a>
           </li>
-          <li>
+          <li @click="navTo('login')">
             <a href="#">
               <i class="el-icon-chat-line-round"></i>消息
             </a>
           </li>
-          <li>
+          <li @click="navTo('shopping')">
             <a href="#">
               <i class="el-icon-shopping-cart-1"></i>购物车
             </a>
           </li>
-          <li>
+          <li @click="navTo('mine')">
             <a href="#">
               <i>
                 <img src="../../../../public/images/member.png" alt />
@@ -102,14 +102,16 @@ export default {
     },
     higggge() {
       this.boot = !this.boot;
+    },
+    navTo(name) {
+      this.$router.push({
+        name: name
+      });
     }
   }
 };
 </script>
 <style>
-.datamain {
-  margin-top: 0.43rem;
-}
 .dpicture {
   position: relative;
   text-align: center;
@@ -285,7 +287,7 @@ export default {
   height: 2.3rem;
   background-color: #fff;
   margin-bottom: 0.44rem;
-  position:fixed;
-  bottom:.44rem;
+  position: fixed;
+  bottom: 0.44rem;
 }
 </style>

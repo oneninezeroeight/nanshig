@@ -5,11 +5,21 @@
       <input type="text" />
       <i class="el-icon-search"></i>
     </p>
-    <span class="el-icon-tickets searchr"></span>
+    <span @click="Navto('login')" class="el-icon-tickets searchr"></span>
   </header>
 </template>
 
 <script>
+export default {
+  methods:{
+    Navto(name) {
+    this.$router.push({
+      name: name
+    });
+  }
+  }
+  
+};
 </script>
 
 <style>
@@ -19,9 +29,9 @@ header {
   background-color: #ff5001;
   color: #fff;
   text-align: center;
-  position:fixed;
-  top:0;
-    z-index: 999;
+  position: fixed;
+  top: 0;
+  z-index: 999;
 }
 header span {
   display: inline-block;
@@ -37,34 +47,34 @@ header .searchr {
   float: right;
   font-size: 0.24rem;
   line-height: 0.43rem;
-  margin-right:.1rem;
+  margin-right: 0.1rem;
 }
 header .logo {
   font-size: 0.3rem;
   font-weight: bolder;
 }
 
-header p{
-    float:left;
-    position:absolute;
-    right:.52rem;
+header p {
+  float: left;
+  position: absolute;
+  right: 0.52rem;
 }
-header p input{
-    width:2.38rem;
-    height:.3rem;
-    border-radius: .1rem;
-    background-color:#000;
-    opacity: .3;
-    border:0;
-    margin-top:0.05rem;
+header p input {
+  width: 2.38rem;
+  height: 0.3rem;
+  border-radius: 0.1rem;
+  background-color: #000;
+  opacity: 0.3;
+  border: 0;
+  margin-top: 0.05rem;
 }
-header p i{
-    font-size:.15rem;
-    position:absolute;
-    left:.1rem;
-    line-height:.35rem;
-    top:.1rem;
-    color:#000;
-    opacity: .3;
+header p i {
+  font-size: 0.15rem;
+  position: absolute;
+  left: 0.1rem;
+  line-height: 0.35rem;
+  top: 0.1rem;
+  color: #000;
+  opacity: 0.3;
 }
 </style>

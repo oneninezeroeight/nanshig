@@ -1,6 +1,6 @@
 <template>
   <div class="datapage">
-    <DataHeader></DataHeader>
+    <DataHeader v-show="bool"></DataHeader>
     <Datamain></Datamain>
     <DataFooter></DataFooter>
   </div>
@@ -10,10 +10,18 @@ import Datamain from "./Datamain";
 import DataHeader from "./Dataheader";
 import DataFooter from "./DataFooter";
 export default {
+    data(){
+        return{
+            bool:false
+        }
+    },
   components: {
     DataHeader,
     Datamain,
     DataFooter
+  },
+  methods:{
+      
   }
 };
 </script>
