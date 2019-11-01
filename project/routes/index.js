@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const { find, insert } = require("./db.js");
+const { find} = require("./db.js");
 
 router.use((req, res, next) => {
   // 全局添加
