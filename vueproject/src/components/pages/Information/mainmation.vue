@@ -151,8 +151,13 @@
         width:.43rem;
         height:.43rem;
     }
+<<<<<<< HEAD
+/* 
+        border: 1px solid #f40;
+=======
 
         /* border: 1px solid #f40;
+>>>>>>> adee2006f338e9185cc78ab039aada36dcbd0319
     padding: 0.2rem;
     border-radius: 5px;
     color: #f40;
