@@ -1,7 +1,7 @@
 <template>
   <div class="datamain">
     <div class="dpicture">
-      <img src="../../../../public/images/nan.jpg" alt />
+      <img :src="this.render.goods_image" alt />
       <span class="sp1">
         <i class="el-icon-arrow-left"></i>
       </span>
@@ -50,14 +50,14 @@
         </ul>
       </div>
     </div>
-    <div class="particulars">
-      <p>男t恤五分袖ins夏季上衣服韩版潮流2019新款嘻哈潮牌帅气 白色上衣 L</p>
+    <div class="particulars" >
+      <p v-text="this.render.goods_name"></p>
     </div>
     <div class="goods-price">
       <dl>
         <dt>
           ￥
-          <span>89.00</span>
+          <span v-text="this.render.goods_price"></span>
         </dt>
       </dl>
       <span class="sold">销量：7件</span>
@@ -90,14 +90,36 @@
     export default{
         data(){
             return{
-                bool:false
+                bool:false,
+                render:''
             }
         },
         methods:{
             higgg(){
                 this.bool = !this.bool;
             }
-        }
+        },
+         async created(){
+    let id1 = this.$route.params.id1;
+    console.log(id1);
+    let id = this.$route.params.id;
+    console.log(id);
+     let data= await this.$axios.post("http://10.3.142.150:3000/goodslist",this.$qs.stringify({id1,id})
+    )
+    // .then(res=>{
+    //   // console.log(res.data);
+      
+    //    let xuan = res.data
+    //    console.log(xuan);
+    // })
+    // console.log(data);
+    this.render = data.data
+    console.log(this.render);
+    
+    
+    
+    
+  }
     }
 </script>
 <style>
