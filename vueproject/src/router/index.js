@@ -40,7 +40,7 @@ const routes = [
   {
     path: "/datapage",
     name: "datapage",
-    component: () => import("../components/pages/datapage/Datapage.vue")
+    component: () => import("../components/pages/Datapage/Datapage.vue")
   }
   ,
    {
