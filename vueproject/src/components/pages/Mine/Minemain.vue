@@ -2,8 +2,8 @@
   <div class="scroller-box">
     <div class="member-top">
       <div class="member-info">
-        <a href="login.html" class="default-avatar" style="display:block;"></a>
-        <a href="login.html" class="to-login">点击登录</a>
+        <a class="default-avatar" style="display:block;"></a>
+        <a class="to-login" @click="navTo()">点击登录</a>
       </div>
       <div class="member-collect">
         <span>
@@ -146,6 +146,17 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  methods:{
+    navTo(){
+      this.$router.push({
+        name:"login"
+      })
+    }
+  }
+}
+</script>
 
 <style>
 .scroller-box {
