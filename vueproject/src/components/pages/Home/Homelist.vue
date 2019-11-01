@@ -4,7 +4,7 @@
       <div class="tit-bar" v-text="i.goods.title"></div>
 
       <ul class="goods-list">
-        <li v-for="(y,index) in i.goods.item" :key="index" @click="navTo()">
+        <li v-for="(y,index) in i.goods.item" :key="index" @click="navTo(index)">
           <a>
             <div class="goods-pic">
               <img
@@ -43,12 +43,15 @@ export default {
     
   },
   methods:{
-  navTo(){
+  navTo(index){
     // console.log(this.a[index].goods.item[indexs]);
     
     // let id = this.a[index];
     this.$router.push({
-      name:"datapage"
+      name:"datapage",
+      params:{
+        id:index
+      }
     })
   },
 }

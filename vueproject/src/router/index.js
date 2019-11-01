@@ -41,9 +41,18 @@ const routes = [
     path: "/datapage",
     name: "datapage",
     component: () => import("../components/pages/Datapage/Datapage.vue")
+  },
+  {
+    path: "/login",
+    name: "login",
+    component: () => import("../components/conmont/login.vue")
+  },
+  {
+    path: "/register",
+    name: "register",
+    component: () => import("../components/conmont/register.vue")
   }
 ];
-
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
