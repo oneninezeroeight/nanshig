@@ -36,14 +36,14 @@ const routes = [
     path: "/mine",
     name: "mine",
     component: () => import("../components/pages/Mine/Mine.vue")
-<<<<<<< HEAD
   },
   {
     path: "/datapage",
     name: "datapage",
-    component: () => import("../components/pages/Datapage/Datapage.vue")
-=======
-  }, {
+    component: () => import("../components/pages/datapage/Datapage.vue")
+  }
+  ,
+   {
     path: "/login",
     name: "login",
     component: () => import("../components/conmont/login.vue")
@@ -51,7 +51,6 @@ const routes = [
     path: "/register",
     name: "register",
     component: () => import("../components/conmont/register.vue")
->>>>>>> adee2006f338e9185cc78ab039aada36dcbd0319
   }
 ];
 
