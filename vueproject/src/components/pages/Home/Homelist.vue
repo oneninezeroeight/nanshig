@@ -373,7 +373,7 @@ export default {
     }
   },
   async created(){
-    let ab = await this.$axios("http://localhost:3000/list");
+    let ab = await this.$axios("http://10.3.142.150:3000/list");
     // console.log(ab);
     this.a = ab.data;
     // console.log(this.a);

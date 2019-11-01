@@ -1,0 +1,7 @@
+var SiteUrl = "https://" + window.location.host + "/shop";
+var ApiUrl = "https://" + window.location.host + "/mobile";
+var pagesize = 10;
+var WapSiteUrl = "https://" + window.location.host + "/wap";
+var IOSSiteUrl = "https://" + window.location.host + "/app.ipa";
+var AndroidSiteUrl = "https://" + window.location.host + "/app.apk";
+var WeiXinOauth = false;

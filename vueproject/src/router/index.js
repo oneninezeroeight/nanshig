@@ -36,6 +36,11 @@ const routes = [
     path: "/mine",
     name: "mine",
     component: () => import("../components/pages/Mine/Mine.vue")
+  },
+  {
+    path: "/datapage",
+    name: "datapage",
+    component: () => import("../components/pages/Datapage/Datapage.vue")
   }
 ];
 

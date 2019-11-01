@@ -1,9 +1,9 @@
 <template>
-	<div class="nctouch-main-layout">
-    	<div class="categroy-cnt" id="categroy-cnt">
-	  		<Table />
-		</div>
-		<!-- <div class="categroy-rgt" id="categroy-rgt">
+  <div class="nctouch-main-layout">
+    <div class="categroy-cnt" id="categroy-cnt">
+      <Table />
+    </div>
+    <!-- <div class="categroy-rgt" id="categroy-rgt">
 			<dl class="categroy-child-list">
 				<dt>
 					<a href="https://www.nanshig.com/wap/tmpl/product_list.html?gc_id=258">
@@ -314,14 +314,37 @@
 					</ul>
 				</div>
 			</ul>
-		</div> -->
-</div>
+    </div>-->
+  </div>
 </template>
 <script>
 import Table from "./Table";
 export default {
+  data() {
+    return {};
+  },
   components: {
     Table
+  },
+  mounted() {
+    let imgs = document.querySelectorAll("img");
+    let clientHeight =
+      window.innerHeight ||
+      document.documentElement.clientHeight ||
+      document.body.clientHeight;
+    function lazyLoad() {
+      let scrollTop =
+        window.pageYOffset ||
+        document.documentElement.scrollTop ||
+        document.body.scrollTop;
+      for (let i = 0; i < imgs.length; i++) {
+        let x = clientHeight + scrollTop - imgs[i].offsetTop;
+        if (x > 0 && x < clientHeight + imgs[i].height) {
+          imgs[i].src = imgs[i].getAttribute("img");
+        }
+      }
+    }
+    setInterval(lazyLoad, 5000);
   }
 };
 </script>
