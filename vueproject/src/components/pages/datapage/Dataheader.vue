@@ -1,6 +1,6 @@
 <template>
   <header>
-    <span class="el-icon-arrow-left tableft"></span>
+    <span class="el-icon-arrow-left tableft" @click="back"></span>
     <span class="el-icon-more searchr"></span>
     <ul class="tabpage">
       <li>
@@ -16,19 +16,30 @@
   </header>
 </template>
 
+<script>
+export default {
+  methods: {
+    back() {
+      this.$router.go(-1);
+    }
+  }
+};
+</script>
+
+
 <style>
 .tabpage {
-  margin:auto;
-  overflow:hidden;
-  position:absolute;
-  left:50%;
+  margin: auto;
+  overflow: hidden;
+  position: absolute;
+  left: 50%;
   transform: translateX(-50%);
 }
 .tabpage li {
   float: left;
-  width:.41rem;
-  height:.43rem;
-  margin:0 .1rem;
-  line-height:.43rem;
+  width: 0.41rem;
+  height: 0.43rem;
+  margin: 0 0.1rem;
+  line-height: 0.43rem;
 }
 </style>

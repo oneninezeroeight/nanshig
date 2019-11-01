@@ -19,9 +19,7 @@ export default {
     DataHeader,
     Datamain,
     DataFooter
-  },
-  methods:{
-      
   }
+  
 };
 </script>

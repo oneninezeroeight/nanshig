@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const { find} = require("./db.js");
+var ObjectID = require('mongodb').ObjectID;
 
 router.use((req, res, next) => {
   // 全局添加
@@ -79,6 +80,30 @@ router.get('/list5', function (req, res, next) {
   find("list5").then((ress) => {
     res.send(ress);
   })
+});
+
+
+
+//通过id查询
+router.post('/goodslist', async function (req, res, next) {
+  let{
+    id1,
+    id
+  }=req.body;
+  // console.log(id1);
+  
+  let data = await find("home",{
+      _id: ObjectID(id1)
+  });
+  // res.send(data[0].goods.item)
+  data[0].goods.item.forEach((item)=>{
+    if(item.goods_id == id){
+      res.send(item);
+    }
+  })
+  // find("home").then((ress) => {
+  //   res.send(ress);
+  // })
 });
 
 module.exports = router;

@@ -1,10 +1,10 @@
 <template>
   <div class="nctouch-home-layout" id="main-container2">
-    <div class="nctouch-home-block item-goods" v-for="(i,index) in a" :key="index">
+    <div class="nctouch-home-block item-goods" v-for="(i,index1) in a" :key="index1">
       <div class="tit-bar" v-text="i.goods.title"></div>
 
       <ul class="goods-list">
-        <li v-for="(y,index) in i.goods.item" :key="index" @click="navTo(index)">
+        <li v-for="(y,index) in i.goods.item" :key="index" @click="navTo(index,index1)">
           <a>
             <div class="goods-pic">
               <img
@@ -43,14 +43,18 @@ export default {
     
   },
   methods:{
-  navTo(index){
-    // console.log(this.a[index].goods.item[indexs]);
-    
-    // let id = this.a[index];
+  navTo(index,index1){
+    // console.log(id);
+  let id = this.a[index1].goods.item[index].goods_id
+  // console.log(id);
+  let id1 = this.a[index1]._id
+  // console.log(id1);
+  
     this.$router.push({
       name:"datapage",
       params:{
-        id:index
+        id1:id1,
+        id:id
       }
     })
   },
