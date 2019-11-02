@@ -51,40 +51,42 @@
       </div>
     </div>
     <div class="particulars">
-      <p v-text="this.render.goods_name"></p>
-    </div>
-    <div class="goods-price">
-      <dl>
-        <dt>
-          ￥
-          <span v-text="this.render.goods_price"></span>
-        </dt>
-      </dl>
-      <span class="sold">销量：7件</span>
-    </div>
-    <div class="goods-detail-item">
-      <ul class="goods-item">
-        <li>送至</li>
-        <li>全国</li>
-        <li>有货</li>
-        <li class="el-icon-location-outline"></li>
-      </ul>
-      <div class="free-shipping">免运费</div>
-    </div>
-    <div class="Size-information" @click="higggge">
-      <span>已选</span>
-      <span>
-        颜色
-        <a href="#">黑色</a>
-      </span>
-      <span>
-        尺码
-        <a href="#">S</a>
-      </span>
-      <span class="el-icon-arrow-right"></span>
-    </div>
+      <div class="particulars">
+        <p v-text="this.render.goods_name"></p>
+      </div>
+      <div class="goods-price">
+        <dl>
+          <dt>
+            ￥
+            <span v-text="this.render.goods_price"></span>
+          </dt>
+        </dl>
+        <span class="sold">销量：7件</span>
+      </div>
+      <div class="goods-detail-item">
+        <ul class="goods-item">
+          <li>送至</li>
+          <li>全国</li>
+          <li>有货</li>
+          <li class="el-icon-location-outline"></li>
+        </ul>
+        <div class="free-shipping">免运费</div>
+      </div>
+      <div class="Size-information" @click="higggge">
+        <span>已选</span>
+        <span>
+          颜色
+          <a href="#">黑色</a>
+        </span>
+        <span>
+          尺码
+          <a href="#">S</a>
+        </span>
+        <span class="el-icon-arrow-right"></span>
+      </div>
 
-    <div class="pop-up" v-show="boot"></div>
+      <div class="pop-up" v-show="boot"></div>
+    </div>
   </div>
 </template>
 
@@ -110,7 +112,6 @@ export default {
       });
     }
   },
-
   async created() {
     let id1 = this.$route.params.id1;
     console.log(id1);
@@ -120,6 +121,19 @@ export default {
       "http://10.3.142.150:3000/goodslist",
       this.$qs.stringify({ id1, id })
     );
+    this.render = data.data;
+    console.log(this.render);
+    let data = await this.$axios.post(
+      "http://10.3.142.150:3000/goodslist",
+      this.$qs.stringify({ id1, id })
+    );
+    // .then(res=>{
+    //   // console.log(res.data);
+
+    //    let xuan = res.data
+    //    console.log(xuan);
+    // })
+    // console.log(data);
     this.render = data.data;
     console.log(this.render);
   }

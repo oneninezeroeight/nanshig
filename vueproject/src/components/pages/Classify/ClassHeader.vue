@@ -1,5 +1,6 @@
 <template>
   <header>
+<header>
     <span class="el-icon-arrow-left tableft" @click="back"></span>
     <p>
       <input type="text" />
@@ -18,8 +19,6 @@ export default {
   }
 };
 </script>
-
-
 <style>
 header {
   width: 100%;
@@ -74,3 +73,4 @@ header p i {
   color: #000;
   opacity: 0.3;
 }
+</style>

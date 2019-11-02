@@ -1,8 +1,8 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\ASUS\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js audit --json --non-interactive --no-progress
+  C:\Program Files\nodejs\node.exe C:\Users\ASUS\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add qs --registry=https://registry.yarnpkg.com --json
 
 PATH: 
-  E:\mypreject\ypreject\node_modules\.bin;E:\mypreject\node_modules\.bin;E:\node_modules\.bin;C:\Program Files\nodejs;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\Microsoft VS Code\bin;E:\软件\Microsoft VS Code\bin;D;\Recv Files\Microsoft VS Code\bin;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Users\ASUS\AppData\Local\Microsoft\WindowsApps;C:\Users\ASUS\AppData\Roaming\npm;C:\Program Files\MongoDB\Server\4.2\bin;
+  E:\mypreject\new\nanshig\vueproject\node_modules\.bin;E:\mypreject\new\nanshig\node_modules\.bin;E:\mypreject\new\node_modules\.bin;E:\mypreject\node_modules\.bin;E:\node_modules\.bin;C:\Program Files\nodejs;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\Microsoft VS Code\bin;E:\软件\Microsoft VS Code\bin;D;\Recv Files\Microsoft VS Code\bin;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Users\ASUS\AppData\Local\Microsoft\WindowsApps;C:\Users\ASUS\AppData\Roaming\npm;C:\Program Files\MongoDB\Server\4.2\bin;
 
 Yarn version: 
   1.19.1
@@ -14,8 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: connect ETIMEDOUT 104.16.16.35:443
-      at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1106:14)
+  Error: EPERM: operation not permitted, unlink 'E:\mypreject\new\nanshig\vueproject\node_modules\.cache\vue-loader\7e28135b76529254209992af3c0795b3.json'
 
 npm manifest: 
   {
@@ -25,7 +24,8 @@ npm manifest:
     "scripts": {
       "serve": "vue-cli-service serve",
       "build": "vue-cli-service build",
-      "lint": "vue-cli-service lint"
+      "lint": "vue-cli-service lint",
+      "start": "npm run serve"
     },
     "dependencies": {
       "axios": "^0.19.0",

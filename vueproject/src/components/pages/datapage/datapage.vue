@@ -20,6 +20,5 @@ export default {
     Datamain,
     DataFooter
   }
-  
 };
 </script>

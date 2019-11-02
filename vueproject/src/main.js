@@ -8,8 +8,8 @@ Vue.prototype.$axios = axios;
 
 //解决跨域
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
-import qs from 'qs'
-Vue.prototype.$qs=qs;
+import qs from 'qs';
+Vue.prototype.$qs = qs;
 
 Vue.use(ElementUi);
 import "element-ui/lib/theme-chalk/index.css";
