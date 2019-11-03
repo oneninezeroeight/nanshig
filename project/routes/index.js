@@ -106,4 +106,24 @@ router.post('/goodslist', async function (req, res, next) {
   // })
 });
 
+router.post('/goodslist4', async function (req, res, next) {
+  let{
+    id1,
+    id
+  }=req.body;
+  // console.log(id1);
+  
+  let data = await find("classfiy",{
+      _id: ObjectID(id1)
+  });
+  // res.send(data[0].goods.item)
+  data[0].forEach((item)=>{
+    if(item.goods_id == id){
+      res.send(item);
+    }
+  })
+  // find("home").then((ress) => {
+  //   res.send(ress);
+  // })
+});
 module.exports = router;

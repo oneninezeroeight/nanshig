@@ -3,7 +3,7 @@
     <dl class="nctouch-cart-store">
       <dt>
         <span class="store-check">
-          <input class="store_checkbox" type="checkbox" checked />
+          <input class="store_checkbox" type="checkbox"/>
         </span>
         <i class="el-icon-potato-strips"></i>
         潮男搭配师
@@ -12,7 +12,7 @@
     <ul class="shopping-list">
       <li>
         <span class="storecheck" style="float:left">
-          <input type="checkbox" checked name="cart_id" value="226205" />
+          <input type="checkbox" name="cart_id" value="226205" />
         </span>
         <div class="goods-pic">
           <img
@@ -53,8 +53,6 @@
   </div>
 </template>
 
-<script>
-</script>
 
 <style>
 .nctouch-main-layoutgoods {

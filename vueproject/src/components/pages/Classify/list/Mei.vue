@@ -57,7 +57,8 @@ export default {
         this.list = lists.data;
         // console.log(this.list);
         
-    }
+	}
+	
 }
 </script>
 

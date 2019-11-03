@@ -1,6 +1,5 @@
 <template>
   <header>
-<header>
     <span class="el-icon-arrow-left tableft" @click="back"></span>
     <p>
       <input type="text" />

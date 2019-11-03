@@ -114,28 +114,15 @@ export default {
   },
   async created() {
     let id1 = this.$route.params.id1;
-    console.log(id1);
+    // console.log(id1);
     let id = this.$route.params.id;
-    console.log(id);
+    // console.log(id);
     let data = await this.$axios.post(
       "http://10.3.142.150:3000/goodslist",
       this.$qs.stringify({ id1, id })
     );
     this.render = data.data;
-    console.log(this.render);
-    let data = await this.$axios.post(
-      "http://10.3.142.150:3000/goodslist",
-      this.$qs.stringify({ id1, id })
-    );
-    // .then(res=>{
-    //   // console.log(res.data);
-
-    //    let xuan = res.data
-    //    console.log(xuan);
-    // })
-    // console.log(data);
-    this.render = data.data;
-    console.log(this.render);
+    // console.log(this.render);
   }
 };
 </script>
