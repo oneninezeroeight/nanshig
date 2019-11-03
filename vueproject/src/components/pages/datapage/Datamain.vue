@@ -125,11 +125,8 @@ export default {
       this.$qs.stringify({ id1, id })
     );
     this.render = data.data;
-<<<<<<< HEAD
     console.log(this.render);
-=======
     // console.log(this.render);
->>>>>>> 8858b0314f2b38820ec454fe550ba0d843a1016b
   }
 };
 </script>
