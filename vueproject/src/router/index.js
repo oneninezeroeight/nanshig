@@ -51,6 +51,11 @@ const routes = [
     path: "/register",
     name: "register",
     component: () => import("../components/conmont/register.vue")
+  },
+  {
+    path: "/product",
+    name: "product",
+    component: () => import("../components/pages/Product/Product.vue")
   }
 ];
 const router = new VueRouter({

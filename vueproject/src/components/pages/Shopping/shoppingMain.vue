@@ -4,7 +4,7 @@
     <dl class="nctouch-cart-store">
       <dt>
         <span class="store-check">
-          <input class="store_checkbox" type="checkbox" checked />
+          <input class="store_checkbox" type="checkbox"/>
         </span>
         <i class="el-icon-potato-strips"></i>
         潮男搭配师
@@ -13,7 +13,7 @@
     <ul class="shopping-list" v-for="(i,index) in a" :key="index">
       <li>
         <span class="storecheck" style="float:left">
-          <input type="checkbox" checked name="cart_id" value="226205" />
+          <input type="checkbox" name="cart_id" value="226205" />
         </span>
         <div class="goods-pic">
           <img
@@ -65,6 +65,7 @@
   </div>
 </template>
 
+<<<<<<< HEAD
 <script>
 export default {
   data() {
@@ -82,6 +83,8 @@ export default {
   }
 };
 </script>
+=======
+>>>>>>> 8858b0314f2b38820ec454fe550ba0d843a1016b
 
 <style>
 .nctouch-main-layoutgoods {

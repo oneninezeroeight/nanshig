@@ -117,15 +117,19 @@ export default {
   },
   async created() {
     let id1 = this.$route.params.id1;
-    console.log(id1);
+    // console.log(id1);
     let id = this.$route.params.id;
-    console.log(id);
+    // console.log(id);
     let data = await this.$axios.post(
       "http://10.3.142.150:3000/goodslist",
       this.$qs.stringify({ id1, id })
     );
     this.render = data.data;
+<<<<<<< HEAD
     console.log(this.render);
+=======
+    // console.log(this.render);
+>>>>>>> 8858b0314f2b38820ec454fe550ba0d843a1016b
   }
 };
 </script>
