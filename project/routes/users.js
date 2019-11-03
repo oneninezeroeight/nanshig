@@ -49,4 +49,20 @@ router.post('/login', async function (req, res, next) {
   });
 
 
+  //注册
+  router.post('/register', async function (req, res, next) {
+    let {
+    username,
+    password
+    } = req.body;
+    let data = await insert('user', [{
+    'username': username,
+    'pwd':password
+    }])
+    
+    // console.log(data)
+    res.send(data)
+    });
+
+0
 module.exports = router;

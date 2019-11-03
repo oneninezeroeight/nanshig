@@ -82,6 +82,12 @@ router.get('/list5', function (req, res, next) {
   })
 });
 
+router.get('/cart', function (req, res, next) {
+  find("cart").then((ress) => {
+    res.send(ress);
+  })
+});
+
 
 
 //通过id查询

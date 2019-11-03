@@ -1,4 +1,5 @@
 <template>
+<div>
   <div class="nctouch-main-layoutgoods">
     <dl class="nctouch-cart-store">
       <dt>
@@ -9,21 +10,22 @@
         潮男搭配师
       </dt>
     </dl>
-    <ul class="shopping-list">
+    <ul class="shopping-list" v-for="(i,index) in a" :key="index">
       <li>
         <span class="storecheck" style="float:left">
           <input type="checkbox" checked name="cart_id" value="226205" />
         </span>
         <div class="goods-pic">
           <img
-            src="https://www.nanshig.com/data/upload/shop/store/goods/45/45_05860523640282479_360.jpg"
+            :src="i.goods_image_url"
           />
         </div>
         <dl class="goods-info">
           <dt class="goods-name" style="float:left">
             <a
               href="https://www.nanshig.com/wap/tmpl/product_detail.html?goods_id=226205"
-            >春夏季白色打底衫男韩版修身紧身健身纯棉短袖t恤男士体恤衫潮流 白色 L</a>
+              v-text="i.goods_name"
+            ></a>
           </dt>
         </dl>
         <div>
@@ -33,7 +35,7 @@
         <div class="goods-subtotal">
           <span class="goods-price" style="float:left">
             ￥
-            <strong>78.00</strong>
+            <strong v-text="i.goods_price"></strong>
           </span>
           <span class="goods-sale"></span>
           <div class="value-box">
@@ -41,7 +43,7 @@
               <a href="javascript:void(0);">-&nbsp;</a>
             </span>
             <span>
-              <input type="text" pattern="[0-9]*" readonly class="buy-num buynum" value="1" />
+              <input type="text" pattern="[0-9]*" readonly class="buy-num buynum" :value="i.goods_salenum" />
             </span>
             <span class="add">
               <a href="javascript:void(0);">+&nbsp;</a>
@@ -51,9 +53,34 @@
       </li>
     </ul>
   </div>
+  <div class="nctouch-cart-bottom">
+						<div class="all-check"><input class="all_checkbox" type="checkbox" checked=""></div>
+						<div class="total">
+              <dl class="total-money"><dt class="b">合计总金额：</dt><dd class="a">￥<em>89.00</em></dd></dl>
+            </div>
+            <div class="check-out ok">
+              <a href="javascript:void(0)">确认信息</a>
+						</div>
+          </div>
+  </div>
 </template>
 
 <script>
+export default {
+  data() {
+    return {
+      a: []
+    };
+  },
+  async created() {
+    let ab = await this.$axios("http://10.3.142.150:3000/cart");
+    // console.log(ab);
+    this.a = ab.data;
+    // console.log(this.a);
+    // console.log(this.a.goods_image_url);
+    console.log(this.a);
+  }
+};
 </script>
 
 <style>
@@ -96,7 +123,7 @@
   height: 0.3rem;
 }
 .nctouch-main-layoutgoods .goods-info .goods-name a {
-  font-size: 0.13rem;
+  font-size: 0.12rem;
   color: #000;
 }
 .nctouch-main-layoutgoods .goods-price {
@@ -131,5 +158,39 @@
   outline-style: none;
   border-right: 0.01rem solid #ccc;
   border-left: 0.01rem solid #ccc;
+}
+.nctouch-cart-bottom{
+  position: fixed;
+  bottom: 59px;
+  width: 100%;
+  height: 44px;
+}
+.all-check{
+  float: left;
+  margin-top: 12px;
+  margin-left:10px;
+  margin-right: 10px;
+}
+.total{
+  float: left;
+}
+.check-out{
+    display: block;
+    float: right;
+    width: 25%;
+    height: 100%;
+    background-color: #ff5001;
+}
+.total-money,.a,.b{
+  float: left;
+  line-height: 44px;
+}
+.nctouch-cart-bottom .check-out a {
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    color: #FFF;
+    height: 100%;
+    line-height: 44px;
 }
 </style>

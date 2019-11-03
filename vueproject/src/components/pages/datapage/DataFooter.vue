@@ -5,7 +5,7 @@
         <i class="el-icon-s-custom"></i>
         <span>客服</span>
       </li>
-      <li>
+      <li @click="navto('shopping')">
         <i class="el-icon-shopping-cart-1"></i>
 
         <span>购物车</span>
@@ -19,6 +19,19 @@
     </ul>
   </div>
 </template>
+<script>
+export default {
+  methods:{
+     navto(name){
+    this.$router.push({
+      name:name
+    })
+  }
+  }
+ 
+}
+</script>
+
 <style>
 .Datafooter {
   width: 100%;

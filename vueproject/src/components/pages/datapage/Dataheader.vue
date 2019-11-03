@@ -1,6 +1,6 @@
 <template>
-  <header>
-    <span class="el-icon-arrow-left tableft" @click="back"></span>
+  <div>
+    <span class="el-icon-arrow-left tableft"></span>
     <span class="el-icon-more searchr"></span>
     <ul class="tabpage">
       <li>
@@ -13,7 +13,7 @@
         <span>评价</span>
       </li>
     </ul>
-  </header>
+  </div>
 </template>
 
 <script>

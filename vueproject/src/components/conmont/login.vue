@@ -100,9 +100,6 @@ export default {
       });
     },
     user: function() {
-      //   console.log(11);
-      //   console.log(this.name);
-
       let _username = this.name;
       if (_username == "") {
         this.tips1 = "用户名不能为空";
@@ -111,8 +108,6 @@ export default {
         this.$axios
           .post("http://10.3.142.150:3000/users/sign/" + _username)
           .then(({ data }) => {
-            //   let data = res.data.length
-            //   console.log(data.length);
             if (data.length == 0) {
               this.tips1 = "没有该用户";
               this.uisok = false;
@@ -122,18 +117,7 @@ export default {
             }
           });
 
-        // let aee = {
-        //   username: "sadasaa",
-        //   password: 123456
-        // };
-        //  this.$axios({
-        //     method: "post",
-        //     headers:{
-        // 				'Content-Type':'application/x-www-form-urlencoded'
-        // 			},
-        //   url: "http://10.3.142.150:3000/users/login",
-        //   data:qs.stringify(aee),
-        // });
+       
       }
     },
     pwd: function() {
@@ -152,34 +136,6 @@ export default {
       }
     },
     login: function() {
-      //       if (this.uisok == false) {
-      //         this.user();
-      //       } else if (this.pisok == false) {
-      //         this.pwd();
-      //       } else
-      //       {
-      //         let _username  = this.name;
-      //         var canshu = {
-      //             username:aa,
-      //             password:123456
-      //         }
-      // console.log(1111);
-
-      //         this.$axios.post("http://10.3.142.150:3000/users/login",
-      //            {
-      //                aee
-      //            }
-      //         ).then((data) => {
-      //           //   let data = res.data.length
-      //           window.console.log(data);
-      //           //   if(data.length == 0){
-      //           //       this.tips1 = '没有该用户';
-      //           //       this.uisok = false;
-      //           //   }else{
-      //           //       this.tips1 = '';
-      //           //       this.uisok = true;
-      //           //   }
-      //         });
       let _this = this;
 
       let aee = {
@@ -194,20 +150,15 @@ export default {
         url: "http://10.3.142.150:3000/users/login",
         data: qs.stringify(aee)
       }).then(function(res) {
-        // console.log(_this);
 
         if (res.data[0] != undefined) {
-          // console.log("登录成功");
-          // this.$router.go(-1);
           _this.$router.push({
             name: "home"
           });
-          // console.log(this);
         } else {
           console.log("账号或密码错误");
         }
       });
-      //       }
     }
   }
 };

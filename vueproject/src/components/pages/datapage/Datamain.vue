@@ -3,7 +3,7 @@
     <div class="dpicture">
       <img :src="this.render.goods_image" alt />
       <span class="sp1">
-        <i class="el-icon-arrow-left"></i>
+        <i class="el-icon-arrow-left" @click="back"></i>
       </span>
       <span @click="higgg" class="sp2">
         <i class="el-icon-more"></i>
@@ -110,6 +110,9 @@ export default {
       this.$router.push({
         name: name
       });
+    },
+    back() {
+      this.$router.go(-1);
     }
   },
   async created() {
@@ -121,19 +124,6 @@ export default {
       "http://10.3.142.150:3000/goodslist",
       this.$qs.stringify({ id1, id })
     );
-    this.render = data.data;
-    console.log(this.render);
-    let data = await this.$axios.post(
-      "http://10.3.142.150:3000/goodslist",
-      this.$qs.stringify({ id1, id })
-    );
-    // .then(res=>{
-    //   // console.log(res.data);
-
-    //    let xuan = res.data
-    //    console.log(xuan);
-    // })
-    // console.log(data);
     this.render = data.data;
     console.log(this.render);
   }
