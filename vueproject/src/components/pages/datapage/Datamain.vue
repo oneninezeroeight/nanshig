@@ -128,6 +128,8 @@ export default {
     // console.log(this.render);
     // console.log(this.$route.params);
     
+    console.log(this.render);
+    // console.log(this.render);
   }
 };
 </script>
