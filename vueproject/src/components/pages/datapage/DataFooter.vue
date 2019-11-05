@@ -10,26 +10,62 @@
 
         <span>购物车</span>
       </li>
-      <li>
-        <h4>立即购买</h4>
+      <li @click="navto('shopping')">
+        <h4 >立即购买</h4>
       </li>
       <li>
-        <h4>加入购物车</h4>
+        <h4 @click="addcart">加入购物车</h4>
       </li>
     </ul>
   </div>
 </template>
 <script>
 export default {
-  methods:{
-     navto(name){
+    data(){
+      return{
+        id:"",
+        id1:""
+      }
+    },
+  //   async created() {
+  //   // this.id1 = this.$route.params.id1;
+  //   // // console.log(id1);
+  //   // this.id = this.$route.params.id;
+  //   // console.log(id);
+  //   // let data = await this.$axios.post(
+  //   //   "http://10.3.142.150:3000/goodslist",
+  //   //   this.$qs.stringify({ id1, id })
+  //   // );
+  //   // this.render = data.data;
+  //   // console.log(this.render);
+  //   console.log(id,id1);
+    
+  // },
+  methods: {
+    navto(name) {
+      this.$router.push({
+        name: name
+      });
+    },
+    async addcart() {
+
+      let id1 = this.$route.params.id1;
+    // console.log(id1);
+      let id = this.$route.params.id;
+      console.log(this.$route.params);
+      
+      let data = await this.$axios.post(
+      "http://10.3.142.150:3000/addcart",
+      this.$qs.stringify({ id1, id }),
+    );
+    console.log(data);
     this.$router.push({
-      name:name
+      name:'shopping'
     })
+    
+    }
   }
-  }
- 
-}
+};
 </script>
 
 <style>

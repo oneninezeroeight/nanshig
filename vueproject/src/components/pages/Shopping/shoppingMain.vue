@@ -39,13 +39,13 @@
           </span>
           <span class="goods-sale"></span>
           <div class="value-box">
-            <span class="minus">
+            <span class="minus" @click="minus(index)">
               <a href="javascript:void(0);">-&nbsp;</a>
             </span>
             <span>
-              <input type="text" pattern="[0-9]*" readonly class="buy-num buynum" :value="i.goods_salenum" />
+              <input type="text" pattern="[0-9]*" readonly class="buy-num buynum"  v-model="i.goods_salenum" />
             </span>
-            <span class="add">
+            <span class="add" @click="add(index)">
               <a href="javascript:void(0);">+&nbsp;</a>
             </span>
           </div>
@@ -65,12 +65,12 @@
   </div>
 </template>
 
-<<<<<<< HEAD
 <script>
 export default {
   data() {
     return {
-      a: []
+      a: [],
+      val:""
     };
   },
   async created() {
@@ -79,12 +79,62 @@ export default {
     this.a = ab.data;
     // console.log(this.a);
     // console.log(this.a.goods_image_url);
+    // console.log(this.a);
     console.log(this.a);
+    // console.log(this.val);
+    // console.log(this);
+    
+    
+     ;
+    
+    
+  },
+  // computed: {
+  //   aa:function(){
+  //       //  this.val = this.a[index].goods_salenum;
+  //       //  console.log(num--);
+  //       var num = this.val;
+  //       console.log(num);
+        
+  //       return num--;
+        
+  //   },
+  //   // add: function(){
+
+  //   // }
+  // },
+    // computed:{
+    //   jian(e){
+    //       console.log(e);
+    //       console.log(this);
+          
+    //       return  1
+    //   }
+    // },
+
+  methods:{
+        minus:function(index){
+        // let num = val--;
+        if(this.a[index].goods_salenum >1){
+          this.a[index].goods_salenum = this.a[index].goods_salenum -1 ;
+        }
+        
+        // console.log(i,index);
+        // var num = i.goods_salenum;
+        
+        console.log();
+       },
+       add:function(index){
+        // let num = val--;
+        this.a[index].goods_salenum = this.a[index].goods_salenum *1 +1 ;
+        // console.log(i,index);
+        // var num = i.goods_salenum;
+        
+        console.log();
+       }
   }
 };
 </script>
-=======
->>>>>>> 8858b0314f2b38820ec454fe550ba0d843a1016b
 
 <style>
 .nctouch-main-layoutgoods {

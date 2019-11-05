@@ -1,13 +1,13 @@
 var express = require('express');
 var router = express.Router();
-const { find} = require("./db.js");
+const { find,insert } = require("./db.js");
 var ObjectID = require('mongodb').ObjectID;
 
 router.use((req, res, next) => {
   // 全局添加
   res.append("Access-Control-Allow-Origin", "*");
   next();
-  });
+});
 
 /* GET home page. */
 router.get('/list', function (req, res, next) {
@@ -92,18 +92,18 @@ router.get('/cart', function (req, res, next) {
 
 //通过id查询
 router.post('/goodslist', async function (req, res, next) {
-  let{
+  let {
     id1,
     id
-  }=req.body;
+  } = req.body;
   // console.log(id1);
-  
-  let data = await find("home",{
-      _id: ObjectID(id1)
+
+  let data = await find("home", {
+    _id: ObjectID(id1)
   });
   // res.send(data[0].goods.item)
-  data[0].goods.item.forEach((item)=>{
-    if(item.goods_id == id){
+  data[0].goods.item.forEach((item) => {
+    if (item.goods_id == id) {
       res.send(item);
     }
   })
@@ -113,18 +113,18 @@ router.post('/goodslist', async function (req, res, next) {
 });
 
 router.post('/goodslist4', async function (req, res, next) {
-  let{
+  let {
     id1,
     id
-  }=req.body;
+  } = req.body;
   // console.log(id1);
-  
-  let data = await find("classfiy",{
-      _id: ObjectID(id1)
+
+  let data = await find("classfiy", {
+    _id: ObjectID(id1)
   });
   // res.send(data[0].goods.item)
-  data[0].forEach((item)=>{
-    if(item.goods_id == id){
+  data[0].forEach((item) => {
+    if (item.goods_id == id) {
       res.send(item);
     }
   })
@@ -132,4 +132,41 @@ router.post('/goodslist4', async function (req, res, next) {
   //   res.send(ress);
   // })
 });
+
+
+
+
+// 加入购物车
+router.post('/addcart', async function (req, res, next) {
+  let {
+    id1,
+    id
+  } = req.body;
+  // console.log(id1);
+
+  let data = await find("home", {
+    _id: ObjectID(id1)
+  });
+  // res.send(data[0].goods.item)
+  data[0].goods.item.forEach((item) => {
+    if (item.goods_id == id) {
+      res.send(item);
+      console.log(item);
+      let dat = insert('cart', [{
+        'goods_id': item.goods_id,
+        'goods_name':item.goods_name,
+        'goods_price':item.goods_price,
+        'goods_image_url':item.goods_image,
+        'goods_promotion_price':item.goods_promotion_price,
+        'goods_salenum':1
+        }]);
+        res.send(dat);
+    }
+  })
+  // find("home").then((ress) => {
+  //   res.send(ress);
+  // })
+});
+
+
 module.exports = router;
